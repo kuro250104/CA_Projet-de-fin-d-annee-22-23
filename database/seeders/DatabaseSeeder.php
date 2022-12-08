@@ -14,11 +14,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\Customer::factory(10)->create();
+        \App\Models\Order::factory(10)->create();
+        $this->call([
+            CaliberSeeder::class,
+        ]);
+        
+        for($i=1; $i<=10; $i++){
+            \App\Models\Delivery::factory()->state(['order_id'=>$i])->create();
+        }
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\Product::factory(10)->create();
+
+        // \App\Models\Order_Lines::factory(10)->create();
     }
-}
+
+}           

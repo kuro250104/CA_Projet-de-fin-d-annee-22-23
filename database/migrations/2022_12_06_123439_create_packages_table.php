@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
+            $table->string('size');
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
         });

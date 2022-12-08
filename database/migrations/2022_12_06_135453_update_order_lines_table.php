@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('order_lines', function($table) {
-            $table->foreign('product_id')->references('id')->on('users');
+            $table->foreign('package_id')->references('id')->on('packages');
             $table->foreign('order_id')->references('id')->on('orders');
         });
     }

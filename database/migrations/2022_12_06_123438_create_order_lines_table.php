@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('order_lines', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('quantity');
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('package_id');
             $table->unsignedBigInteger('order_id');
             $table->timestamps();
         });
