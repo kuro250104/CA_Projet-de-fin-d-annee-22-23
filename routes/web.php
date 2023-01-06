@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\StockController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('customer.index');
 });
+
+Route::get('/index',[CustomerController::class, 'index'] )->name('customer.index');
+
+
+Route::get('/customers',[CustomerController::class, 'home'] )->name('customer.customers');
+
+
+// Route::get('/stocks',[StockController::class, 'home'] )->name('stock.stocks');
+Route::get('/orders',[OrderController::class, 'home'] )->name('order.orders');
