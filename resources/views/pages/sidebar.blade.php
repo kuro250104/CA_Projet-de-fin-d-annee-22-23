@@ -7,7 +7,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3" href="{{ route('customer.index')}}" >Picoti</div>
+        <div class="sidebar-brand-text mx-3" href="{{ route('customer.index') }}" >Picoti</div>
     </a>
     
 
@@ -41,9 +41,10 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Section : </h6>
-                {{-- <a class="collapse-item" href="{{ route('stock.stocks')}}">Stocks</a> --}}
+                <a class="collapse-item" href="{{ route('stock.stocks')}}">Stocks</a>
                 <a class="collapse-item" href="{{ route('customer.customers')}}">Clients</a>
-                <a class="collapse-item" href="orders.php">Commandes</a>
+                <a class="collapse-item" href="{{ route('order.orders')}}">Commandes</a>
+                <a class="collapse-item" href="{{ route('caliber.calibers')}}">Calibres</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">DEV</h6>
                 <a class="collapse-item" href="essais.php">Pages d'essais</a>

@@ -3,18 +3,18 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Bienvenue sur la page des clients</h1>
+        <h1 class="h3 mb-0 text-gray-800">Bienvenue sur la page de calibres</h1>
     </div>
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Clients</h1>
-    <p class="mb-4">Pour le moment je fais le test de la tables des clients, donc ici s'affiche les clients.</a></p>
-    <p class="mb-4">Pour ajouter un clients, veuillez remplir le formulaire si dessous:</p>
-    <form action="{{ route('customer.create')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <h1 class="h3 mb-2 text-gray-800">Calibres</h1>
+    <p class="mb-4">Pour le moment je fais le test de la tables des différentes tailles de calibres, donc ici s'affiche les calibres.</a></p>
+    <p class="mb-4">Pour ajouter un calibre, veuillez remplir le formulaire si dessous:</p>
+    <form action="{{ route('caliber.create')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
         <div class="input-group">
-            <input type="text" name="name" class="form-control bg-light border small" placeholder="Ajouter un client" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="text" name="name" class="form-control bg-light border small" placeholder="Ajouter un calibre" aria-label="Search" aria-describedby="basic-addon2">
 
-            <input type="text" name="code" class="form-control bg-light border small" placeholder="Ajouter un code" aria-label="Search" aria-describedby="basic-addon2">
+            
             <div class="input-group-append">
                 <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
                     <span class="icon text-white-50">
@@ -41,16 +41,17 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nom</th>
-                                <th>Code</th>
+                                <th>Numéro ID</th>
+                                <th>Taille du calibre</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
+                        
                         <tbody>
-                            @foreach($customers as $customer)
+                            @foreach($calibers as $caliber)
                                 <tr>
-                                    <td>{{$customer->name}}</td>
-                                    <td>{{$customer->code}}</td>
+                                    <td>{{$caliber->id}}</td>
+                                    <td>{{$caliber->name}}</td>
                                     <td><a href="#" class="btn btn-light btn-icon-split" spellcheck="false">
                                         <span class="icon text-gray-600">
                                             <i class="far fa-edit"></i>
@@ -58,21 +59,13 @@
                                         <span class="text">Modifer</span>
                                     </a></td>
                                 </tr>
-                                
                             @endforeach
-                            
                         </tbody>
-                        
                     </table>
-                    {{ $customers->links('pages.pagination') }}
-
-
-                    
                 </div>
             </div>
         </div>
     </div>
 </div>
-
     
 @endsection

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
     @include("pages.header")
@@ -26,4 +28,4 @@
         @include("pages.import")
         @include("pages.logout")
     </body>
-    </html>
+</html>
