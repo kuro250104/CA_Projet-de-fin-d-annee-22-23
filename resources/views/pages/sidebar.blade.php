@@ -18,7 +18,8 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('customer.index')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Menu Principal</span></a>
+            <span>Menu Principal</span>
+        </a>
     </li>
 
 
@@ -33,25 +34,31 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+        <a class="nav-link" href="{{ route('customer.index')}}">
+            <i class="fas fa-users"></i>
+            <span>Clients</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Section : </h6>
-                <a class="collapse-item" href="{{ route('stock.stocks')}}">Stocks</a>
-                <a class="collapse-item" href="{{ route('customer.customers')}}">Clients</a>
-                <a class="collapse-item" href="{{ route('order.orders')}}">Commandes</a>
-                <a class="collapse-item" href="{{ route('caliber.calibers')}}">Calibres</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">DEV</h6>
-                <a class="collapse-item" href="essais.php">Pages d'essais</a>
-                <a class="collapse-item" href="blank.php">Pages vierges</a>
-            </div>
-        </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link"href="{{ route('order.index')}}">
+            <i class="fas fa-box"></i>
+            <span>Commandes</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('caliber.index')}}">
+            <i class="fas fa-egg"></i>
+            <span>Calibres</span>
+        </a>
+    </li>
+    {{-- <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Pages à ajouter</span>
+        </a>
+    </li> --}}
+
+    
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>

@@ -1,6 +1,8 @@
-.scroll-to-top {
-    padding-top: 12px ;
-}
+
 .input-group{
     margin-bottom: 1em;
+}
+.custom-td{
+    display: flex;
+    justify-content: space-evenly;
 }

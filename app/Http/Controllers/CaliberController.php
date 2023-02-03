@@ -10,8 +10,8 @@ class CaliberController extends Controller
 {
     public function home()
     {
-        $calibers = Caliber::all();
-        return view('caliber.calibers', compact("calibers"));
+        $calibers = Caliber::paginate(25);
+        return view('caliber.index', compact("calibers"));
     }
     public function create(Request $request)
     {
@@ -19,6 +19,6 @@ class CaliberController extends Controller
         $caliber->name = $request->get('name');
         $caliber->save();
 
-        return redirect()->route('caliber.calibers');
+        return redirect()->route('caliber.index');
     }
 }

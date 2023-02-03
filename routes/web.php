@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\OrderController;
@@ -22,15 +23,18 @@ use App\Http\Controllers\CaliberController;
 Route::get('/', function () {
     return view('customer.index');
 });
-Route::get('/index',[CustomerController::class, 'index'] )->name('customer.index');
+Route::get('/',[HomeController::class, 'home'] )->name('customer.index');
 
 
-Route::get('/customers',[CustomerController::class, 'home'] )->name('customer.customers');
+Route::get('/customers',[CustomerController::class, 'home'] )->name('customer.index');
 Route::post('/customers',[CustomerController::class, 'create'] )->name('customer.create');
+Route::get('/customers/{id}/edit',[CustomerController::class, 'edit'] )->name('customer.edit');
+Route::put('/customers/{id}' ,[CustomerController::class, 'update'] )->name('customer.update');
 
 Route::get('/stocks',[StockController::class, 'home'] )->name('stock.stocks');
-Route::get('/orders',[OrderController::class, 'home'] )->name('order.orders');
+
+Route::get('/orders',[OrderController::class, 'home'] )->name('order.index');
 Route::post('/orders',[OrderController::class, 'create'] )->name('order.create');
 
-Route::get('/calibers',[CaliberController::class, 'home'] )->name('caliber.calibers');
+Route::get('/calibers',[CaliberController::class, 'home'] )->name('caliber.index');
 Route::post('/calibers',[CaliberController::class, 'create'] )->name('caliber.create');

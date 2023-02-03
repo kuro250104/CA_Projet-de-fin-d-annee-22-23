@@ -12,7 +12,7 @@ class CustomerController extends Controller
     {
         $customers = Customer::paginate(25);
         // dd($customers);
-        return view('customer.customers', compact("customers"));
+        return view('customer.index', compact("customers"));
     }
     public function index()
     {
@@ -26,6 +26,22 @@ class CustomerController extends Controller
         $customer->code = $request->get('code');
         $customer->save();
 
-        return redirect()->route('customer.customers');
+        return redirect()->route('customer.index');
+    }
+
+    public function edit($id)
+    {
+        $customer = Customer::find($id);
+        return view('customer.edit', compact("customer"));
+    }
+    public function update(Request $request, $id)
+    {
+        $customer = Customer::find($id);
+        $customer->name = $request->get('name');
+        $customer->code = $request->get('code');
+        $customer->save();
+
+        return redirect()->route("customer.index");
+
     }
 }

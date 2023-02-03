@@ -14,8 +14,13 @@ class CaliberSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('calibers')->insert(['name'=>'30']);
-        \DB::table('calibers')->insert(['name'=>'53']);
-        \DB::table('calibers')->insert(['name'=>'62']);
+        $datas = [
+            "30",
+            "53",
+            "62"
+        ];
+        foreach($datas as $data) {
+            \DB::table('calibers')->insert(['name'=>$data]);
+        }
     }
 }

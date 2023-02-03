@@ -12,9 +12,9 @@ class OrderController extends Controller
 {
     public function home()
     {
-        $orders = Order::all();
-        $customers = Customer::all();
-        return view('order.orders', compact('orders', 'customers'));
+        $orders = Order::paginate(25);
+        $customers = Customer::paginate(25);
+        return view('order.index', compact('orders', 'customers'));
     }
 
     public function create(Request $request)
@@ -24,7 +24,7 @@ class OrderController extends Controller
         $order->number = $request->get('number');
         $order->save();
 
-        return redirect()->route('order.orders');
+        return redirect()->route('order.index');
     }
    
 }
