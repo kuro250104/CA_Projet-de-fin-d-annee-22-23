@@ -7,8 +7,8 @@
     </div>
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Clients</h1>
-    <p class="mb-4">Pour le moment je fais le test de la tables des clients, donc ici s'affiche les clients.</a></p>
-    <p class="mb-4">Pour ajouter un clients, veuillez remplir le formulaire si dessous:</p>
+    <p class="mb-4">Pour le moment je fais le test de la table des clients, donc ici s'affiche les clients.</a></p>
+    <p class="mb-4">Pour ajouter un client, veuillez remplir le formulaire si dessous:</p>
     <form action="{{ route('customer.create')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
         <div class="input-group">
@@ -22,20 +22,13 @@
                     </span>
                     <span class="text">Valider</span>
                 </button>
-                <button class="btn btn-danger btn-icon-split" spellcheck="false">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                    </span>
-                    <span class="text">Supprimer</span>
-                </button>
-                
             </div>
         </div>
     </form>
     <div id="content">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
-            
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -56,7 +49,7 @@
                                         <span class="icon text-gray-600">
                                             <i class="far fa-edit"></i>
                                         </span>
-                                        <span class="text">Modifer</span>
+                                        <span class="text">Modifier</span>
                                     </a>
                                         <a href="#" class="btn btn-light btn-icon-split" spellcheck="false">
                                         <span class="icon text-gray-600">
@@ -65,11 +58,11 @@
                                         <span class="text">Voir</span>
                                     </a></td>
                                 </tr>
-                                
+
                             @endforeach
-                            
+
                         </tbody>
-                        
+
                     </table>
                     {{ $customers->links('pages.pagination') }}
                 </div>
@@ -78,5 +71,5 @@
     </div>
 </div>
 
-    
+
 @endsection

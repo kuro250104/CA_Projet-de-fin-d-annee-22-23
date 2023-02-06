@@ -7,14 +7,14 @@
     </div>
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Calibres</h1>
-    <p class="mb-4">Pour le moment je fais le test de la tables des différentes tailles de calibres, donc ici s'affiche les calibres.</a></p>
+    <p class="mb-4">Pour le moment je fais le test de la table des différentes tailles de calibres, donc ici s'affiche les calibres.</a></p>
     <p class="mb-4">Pour ajouter un calibre, veuillez remplir le formulaire si dessous:</p>
     <form action="{{ route('caliber.create')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
         <div class="input-group">
             <input type="text" name="name" class="form-control bg-light border small" placeholder="Ajouter un calibre" aria-label="Search" aria-describedby="basic-addon2">
 
-            
+
             <div class="input-group-append">
                 <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
                     <span class="icon text-white-50">
@@ -28,14 +28,14 @@
                     </span>
                     <span class="text">Supprimer</span>
                 </button>
-                
+
             </div>
         </div>
     </form>
     <div id="content">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
-            
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -46,7 +46,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        
+
                         <tbody>
                             @foreach($calibers as $caliber)
                                 <tr>
@@ -57,7 +57,7 @@
                                         <span class="icon text-gray-600">
                                             <i class="far fa-edit"></i>
                                         </span>
-                                        <span class="text">Modifer</span></a>
+                                        <span class="text">Modifier</span></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -69,5 +69,5 @@
         </div>
     </div>
 </div>
-    
+
 @endsection

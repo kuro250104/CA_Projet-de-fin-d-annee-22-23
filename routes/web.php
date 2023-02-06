@@ -23,15 +23,16 @@ use App\Http\Controllers\CaliberController;
 Route::get('/', function () {
     return view('customer.index');
 });
-Route::get('/',[HomeController::class, 'home'] )->name('customer.index');
+Route::get('/',[HomeController::class, 'home'] )->name('home.home');
 
 
 Route::get('/customers',[CustomerController::class, 'home'] )->name('customer.index');
 Route::post('/customers',[CustomerController::class, 'create'] )->name('customer.create');
 Route::get('/customers/{id}/edit',[CustomerController::class, 'edit'] )->name('customer.edit');
 Route::put('/customers/{id}' ,[CustomerController::class, 'update'] )->name('customer.update');
+Route::delete('/customer', [CustomerController::class, 'delete'])->name('customer.destroy');
 
-Route::get('/stocks',[StockController::class, 'home'] )->name('stock.stocks');
+//Route::get('/stocks',[StockController::class, 'home'] )->name('stock.stocks')
 
 Route::get('/orders',[OrderController::class, 'home'] )->name('order.index');
 Route::post('/orders',[OrderController::class, 'create'] )->name('order.create');

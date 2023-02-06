@@ -21,7 +21,7 @@
         </form>
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
-            {{-- connection au compte en cours de developpement --}}
+            {{-- connection au compte en cours de développement --}}
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"

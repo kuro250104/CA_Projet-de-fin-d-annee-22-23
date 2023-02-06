@@ -8,24 +8,36 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Clients</h1>
     <p class="mb-4">Veuillez modifier le client {{ $customer->name }}</p>
-    <form action="{{ route('customer.update', $customer->id)}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        @method("PUT")
-        @csrf
-        <div class="input-group">
-            <input type="text" name="name" class="form-control bg-light border small" placeholder="Ajouter un client" aria-label="Search" aria-describedby="basic-addon2" value="{{ $customer->name }}">
+        <form action="{{ route('customer.update', $customer->id)}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            @method("PUT")
+            @csrf
+            <div class="input-group">
+                <input type="text" name="name" class="form-control bg-light border small" placeholder="Ajouter un client" aria-label="Search" aria-describedby="basic-addon2" value="{{ $customer->name }}">
 
-            <input type="text" name="code" class="form-control bg-light border small" placeholder="Ajouter un code" aria-label="Search" aria-describedby="basic-addon2" value="{{ $customer->code }}">
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                    </span>
-                    <span class="text">Valider</span>
-                </button>
+                <input type="text" name="code" class="form-control bg-light border small" placeholder="Ajouter un code" aria-label="Search" aria-describedby="basic-addon2" value="{{ $customer->code }}">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span class="text">Valider</span>
+                    </button>
+
+                </div>
             </div>
-        </div>
+        </form>
+    <form action="{{ route('customer.destroy', $customer->id) }}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        @method("delete")
+        @csrf
+        <input  type="hidden" name="customer_id" value="{{ $customer->id }}">
+        <button type="submit" class="btn btn-danger btn-icon-split" spellcheck="false">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-trash"></i>
+                    </span>
+            <span class="text">Supprimer</span>
+        </button>
     </form>
 </div>
 
-    
+
 @endsection

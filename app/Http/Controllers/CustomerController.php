@@ -22,8 +22,8 @@ class CustomerController extends Controller
     public function create(Request $request)
     {
         $customer = new Customer();
-        $customer->name = $request->get('name');
-        $customer->code = $request->get('code');
+        $customer->name = $request->post('name');
+        $customer->code = $request->post('code');
         $customer->save();
 
         return redirect()->route('customer.index');
@@ -42,6 +42,11 @@ class CustomerController extends Controller
         $customer->save();
 
         return redirect()->route("customer.index");
+    }
+    public function delete(Request $request)
+    {
+        Customer::destroy( $request->get('customer_id') );
 
+        return redirect()->route("customer.index");
     }
 }

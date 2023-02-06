@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
     @include("pages.header")
-    </head>
     
     <body id="page-top">
         <div id="wrapper">
