@@ -29,7 +29,7 @@
     <form action="{{ route('customer.destroy', $customer->id) }}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @method("delete")
         @csrf
-        <input  type="hidden" name="customer_id" value="{{ $customer->id }}">
+
         <button type="submit" class="btn btn-danger btn-icon-split" spellcheck="false">
                     <span class="icon text-white-50">
                         <i class="fas fa-trash"></i>
@@ -37,6 +37,22 @@
             <span class="text">Supprimer</span>
         </button>
     </form>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (\Session::has('error'))
+        <div class="alert alert-danger">
+            <ul>
+                <li>{{ \Session::get('error') }}</li>
+            </ul>
+        </div>
+    @endif
 </div>
 
 

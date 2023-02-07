@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCustomerRequest;
+use App\Http\Requests\UpdateCustomerRequest;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 use App\Models\Customer;
@@ -11,41 +14,40 @@ class CustomerController extends Controller
     public function home()
     {
         $customers = Customer::paginate(25);
-        // dd($customers);
+
         return view('customer.index', compact("customers"));
     }
     public function index()
     {
         $customers = Customer::all();
+
         return view('customer.index', compact("customers"));
     }
-    public function create(Request $request)
+    public function store(StoreCustomerRequest $request)
     {
-        $customer = new Customer();
-        $customer->name = $request->post('name');
-        $customer->code = $request->post('code');
-        $customer->save();
+        Customer::create($request->validated());
 
         return redirect()->route('customer.index');
     }
 
-    public function edit($id)
+    public function edit(int $customerId)
     {
-        $customer = Customer::find($id);
+        $customer = Customer::find($customerId);
+
         return view('customer.edit', compact("customer"));
     }
-    public function update(Request $request, $id)
+    public function update(UpdateCustomerRequest $request,int $customerId)
     {
-        $customer = Customer::find($id);
-        $customer->name = $request->get('name');
-        $customer->code = $request->get('code');
-        $customer->save();
+        Customer::findOrFail($customerId)->update($request->validated());
 
         return redirect()->route("customer.index");
     }
-    public function delete(Request $request)
+    public function destroy(int $customerId)
     {
-        Customer::destroy( $request->get('customer_id') );
+        if(count(Order::where('customer_id', $customerId)->get()) >0) {
+            return redirect()->back()->with('error', 'Le client a des commandes en cours.');
+        }
+        Customer::destroy($customerId);
 
         return redirect()->route("customer.index");
     }

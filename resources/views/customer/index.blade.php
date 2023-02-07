@@ -7,14 +7,14 @@
     </div>
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Clients</h1>
-    <p class="mb-4">Pour le moment je fais le test de la table des clients, donc ici s'affiche les clients.</a></p>
+    <p class="mb-4">Pour le moment je fais le test de la table des clients, donc ici s'affiche les clients.</p>
     <p class="mb-4">Pour ajouter un client, veuillez remplir le formulaire si dessous:</p>
-    <form action="{{ route('customer.create')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <form action="{{ route('customer.store')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
         <div class="input-group">
-            <input type="text" name="name" class="form-control bg-light border small" placeholder="Ajouter un client" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Ajouter un client" aria-label="Search" aria-describedby="basic-addon2">
 
-            <input type="text" name="code" class="form-control bg-light border small" placeholder="Ajouter un code" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="text" name="code" class="form-control bg-light border small" value="{{old('code')}}" placeholder="Ajouter un code" aria-label="Search" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
                     <span class="icon text-white-50">
@@ -25,6 +25,16 @@
             </div>
         </div>
     </form>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div id="content">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -58,11 +68,8 @@
                                         <span class="text">Voir</span>
                                     </a></td>
                                 </tr>
-
                             @endforeach
-
                         </tbody>
-
                     </table>
                     {{ $customers->links('pages.pagination') }}
                 </div>
