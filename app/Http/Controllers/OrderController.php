@@ -23,10 +23,8 @@ class OrderController extends Controller
 
     public function store(UpdateOrderRequest $request)
     {
-        $order = new Order();
-        $order->customer_id = $request->get('customer_id');
-        $order->number = $request->get('number');
-        $order->save();
+
+        Order::create($request->validated());
 
         return redirect()->route('order.index');
     }

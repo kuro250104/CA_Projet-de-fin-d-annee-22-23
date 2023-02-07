@@ -20,7 +20,7 @@ use App\Http\Controllers\CaliberController;
 |
 */
 
-
+Route::view('/', 'home.home');
 Route::get('/',[HomeController::class, 'home'] )->name('home.home');
 
 
@@ -40,3 +40,6 @@ Route::delete('/orders/{id}/destroy', [OrderController::class, 'destroy'])->name
 
 Route::get('/calibers',[CaliberController::class, 'home'] )->name('caliber.index');
 Route::post('/calibers',[CaliberController::class, 'create'] )->name('caliber.create');
+Route::get('/calibers/{id}/edit',[CaliberController::class, 'edit'] )->name('caliber.edit');
+Route::put('/calibers/{id}' ,[CaliberController::class, 'update'] )->name('caliber.update');
+Route::delete('/calibers/{id}/destroy', [CaliberController::class, 'destroy'])->name('caliber.destroy');

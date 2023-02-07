@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 
+
 class StoreCustomerRequest extends FormRequest
 {
     public function authorize(): bool
@@ -12,11 +13,11 @@ class StoreCustomerRequest extends FormRequest
         return true;
     }
 
-    public function rules(): array
+    public function rules() :array
     {
         return [
             'name' => 'required|regex:/^[A-Z]+$/i',
-            'code' => 'required|regex:/^[A-Z]{2}$/i|uppercase'
+            'code' => 'required|regex:/^[A-Z]{2}$/i|uppercase|unique:customers,code'
         ];
     }
 
@@ -27,7 +28,8 @@ class StoreCustomerRequest extends FormRequest
             'name.regex'=> 'Le nom ne doit pas contenir de chiffres.',
             'code.required'=> 'Veuillez saisir un code.',
             'code.regex'=> 'Veuillez saisir un code valide.',
-            'code.uppercase'=> 'Le code doit être en MAJUSCULE.'
+            'code.uppercase'=> 'Le code doit être en MAJUSCULE.',
+            'code.unique'=> 'Ce code est déjà utilisé',
         ];
     }
 }

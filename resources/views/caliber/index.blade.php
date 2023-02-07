@@ -13,8 +13,6 @@
         @csrf
         <div class="input-group">
             <input type="text" name="name" class="form-control bg-light border small" placeholder="Ajouter un calibre" aria-label="Search" aria-describedby="basic-addon2">
-
-
             <div class="input-group-append">
                 <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
                     <span class="icon text-white-50">
@@ -53,11 +51,17 @@
                                     <td style="width: 33%;">{{$caliber->id}}</td>
                                     <td style="width: 33%;">{{$caliber->name}}</td>
                                     <td class="custom-td">
-                                        <a href="#" class="btn btn-light btn-icon-split" spellcheck="false">
+                                        <a href="{{ route('caliber.edit', $caliber->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                         <span class="icon text-gray-600">
                                             <i class="far fa-edit"></i>
                                         </span>
                                         <span class="text">Modifier</span></a>
+                                        <a href="#" class="btn btn-light btn-icon-split" spellcheck="false">
+                                        <span class="icon text-gray-600">
+                                            <i class="far fa-eye"></i>
+                                        </span>
+                                            <span class="text">Voir</span>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

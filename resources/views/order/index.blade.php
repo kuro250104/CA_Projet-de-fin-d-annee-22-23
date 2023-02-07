@@ -19,7 +19,7 @@
                 @endforeach
             </select>
 
-            <input type="text" name="number" class="form-control bg-light border small" placeholder="Ajouter un numéro" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="text" name="number" value="{{old('number')}}"class="form-control bg-light border small" placeholder="Ajouter un numéro" aria-label="Search" aria-describedby="basic-addon2">
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
@@ -31,6 +31,15 @@
             </div>
         </div>
     </form>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div id="content">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">

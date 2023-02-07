@@ -15,6 +15,7 @@
                 <input type="text" name="name" class="form-control bg-light border small" placeholder="Ajouter un client" aria-label="Search" aria-describedby="basic-addon2" value="{{ $customer->name }}">
 
                 <input type="text" name="code" class="form-control bg-light border small" placeholder="Ajouter un code" aria-label="Search" aria-describedby="basic-addon2" value="{{ $customer->code }}">
+                <input type="hidden" name="customer_id" value='{{$customer->id}}'>
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
                         <span class="icon text-white-50">

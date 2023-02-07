@@ -18,7 +18,7 @@ class OrderFactory extends Factory
     {
         return [
             'number' => fake()->ean8(),
-            'customer_id' => random_int(1, 10),
+            'customer_id' => null,
         ];
     }
 }
