@@ -51,12 +51,12 @@
             <span>Calibres</span>
         </a>
     </li>
-    {{-- <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Pages à ajouter</span>
+     <li class="nav-item">
+        <a class="nav-link" href="{{ route('delivery.index') }}">
+            <i class="fas fa-truck"></i>
+            <span>Livraisons</span>
         </a>
-    </li> --}}
+    </li>
 
 
     <div class="text-center d-none d-md-inline">

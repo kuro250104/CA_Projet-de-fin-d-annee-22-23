@@ -20,13 +20,6 @@
                     </span>
                     <span class="text">Valider</span>
                 </button>
-                <button class="btn btn-danger btn-icon-split" spellcheck="false">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                    </span>
-                    <span class="text">Supprimer</span>
-                </button>
-
             </div>
         </div>
     </form>

@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\StockController;
+//use App\Http\Controllers\StockController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CaliberController;
+use App\Http\Controllers\DeliveryController;
 
 
 /*
@@ -43,3 +44,6 @@ Route::post('/calibers',[CaliberController::class, 'create'] )->name('caliber.cr
 Route::get('/calibers/{id}/edit',[CaliberController::class, 'edit'] )->name('caliber.edit');
 Route::put('/calibers/{id}' ,[CaliberController::class, 'update'] )->name('caliber.update');
 Route::delete('/calibers/{id}/destroy', [CaliberController::class, 'destroy'])->name('caliber.destroy');
+
+
+Route::get('/deliveries', [DeliveryController::class, 'home'] )->name('delivery.index');
