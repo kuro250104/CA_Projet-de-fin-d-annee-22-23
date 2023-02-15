@@ -55,7 +55,7 @@
                             <tbody>
                             @foreach($deliveries as $delivery)
                                 <tr>
-                                    <td>{{ $delivery->order->customer->name }}</td>
+                                    <td> <a href="{{route("customer.index")}}">{{ $delivery->order->customer->name }}</a> </td>
                                     <td>{{ $delivery->place }}</td>
                                     <td>{{ $delivery->order->number }}</td>
                                     <td>{{ $delivery->date }}</td>
@@ -69,7 +69,7 @@
                                         </a>
                                         <a href="#" class="btn btn-light btn-icon-split" spellcheck="false">
                                         <span class="icon text-gray-600">
-                                            <i class="far fa-eye"></i>
+                                            <i class="far fa-eye"></i>w
                                         </span>
                                             <span class="text">Voir</span>
                                         </a></td>

@@ -15,7 +15,7 @@ class OrderController extends Controller
 {
     public function home()
     {
-        $orders = Order::paginate(25);
+        $orders = Order::with("customer")->paginate(25);
         $customers = Customer::paginate(25);
 
         return view('order.index', compact('orders', 'customers'));
