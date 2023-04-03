@@ -12,7 +12,12 @@
                 <div class="modal-body">Sélectionner "Déconnexion" pour quitter la session actuelle.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+
+                    <form action="{{route("logout")}}" method="POST"  >
+
+                    @csrf
+                        <button class="btn btn-primary" >Déconnexion </button>
+                    </form>
                 </div>
             </div>
         </div>
