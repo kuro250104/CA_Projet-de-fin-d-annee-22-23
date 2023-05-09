@@ -69,7 +69,7 @@
                                         </a>
                                         <a href="#" class="btn btn-light btn-icon-split" spellcheck="false">
                                         <span class="icon text-gray-600">
-                                            <i class="far fa-eye"></i>w
+                                            <i class="far fa-eye"></i>
                                         </span>
                                             <span class="text">Voir</span>
                                         </a></td>

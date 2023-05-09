@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('date')->nullable();
             $table->tinyInteger('quantity');
             $table->unsignedBigInteger('caliber_id');
             $table->timestamps();

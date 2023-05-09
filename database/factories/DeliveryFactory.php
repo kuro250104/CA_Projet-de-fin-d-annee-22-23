@@ -23,4 +23,4 @@ class DeliveryFactory extends Factory
         ];
     }
     
-}
+}   
